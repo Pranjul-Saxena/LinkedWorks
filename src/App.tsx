@@ -69,7 +69,7 @@ function App() {
           </button>
 
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <ArrowDown className="w-6 h-6 text-gray-400" />
+            {/* <ArrowDown className="w-6 h-6 text-gray-400" /> */}
           </div>
         </div>
       </div>
