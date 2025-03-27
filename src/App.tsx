@@ -20,7 +20,7 @@ function App() {
 
   const handleSubmitClick = () => {
     // Placeholder for submission functionality
-    <
+    
     alert('Submission form coming soon!');
   };
 
