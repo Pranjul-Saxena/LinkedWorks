@@ -20,6 +20,7 @@ function App() {
 
   const handleSubmitClick = () => {
     // Placeholder for submission functionality
+    <
     alert('Submission form coming soon!');
   };
 
@@ -125,7 +126,7 @@ function App() {
               onClick={handleSubmitClick}
               className="px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105"
             >
-              Submit Your Idea
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfSkqNADyplYuX4D_ld27ngudvn_71qvEa004aC8xwn2bEKYQ/viewform?usp=header">Submit Your Idea</a>Submit Your Idea
             </button>
           </div>
         </div>
