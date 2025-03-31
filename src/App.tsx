@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Rocket, ArrowDown, Code2, Users, Zap } from "lucide-react";
 import MultiStepForm from "./components/MultiStepForm";
+import FormList from "./components/FormList";
 
 function App() {
   const [ideasCount, setIdeasCount] = useState(45);
   const [isVisible, setIsVisible] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  const [showFormList, setShowFormList] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +24,10 @@ function App() {
 
   const handleSubmitClick = () => {
     setShowForm(true);
+  };
+
+  const handleViewSubmissions = () => {
+    setShowFormList(true);
   };
 
   return (
@@ -53,6 +59,38 @@ function App() {
                 </button>
               </div>
               <MultiStepForm />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Form List Modal */}
+      {showFormList && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-gray-900 rounded-xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-white">Submitted Ideas</h2>
+                <button
+                  onClick={() => setShowFormList(false)}
+                  className="text-gray-400 hover:text-white"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <FormList />
             </div>
           </div>
         </div>
@@ -96,12 +134,20 @@ function App() {
             </div>
           </div>
 
-          <button
-            onClick={handleSubmitClick}
-            className="px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105"
-          >
-            Submit Your Idea
-          </button>
+          <div className="flex gap-4 justify-center">
+            <button
+              onClick={handleSubmitClick}
+              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+            >
+              Submit Your Idea
+            </button>
+            <button
+              onClick={handleViewSubmissions}
+              className="px-8 py-4 bg-gray-700 hover:bg-gray-600 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+            >
+              View Submissions
+            </button>
+          </div>
 
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
             {/* <ArrowDown className="w-6 h-6 text-gray-400" /> */}
