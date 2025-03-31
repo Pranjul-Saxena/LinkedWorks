@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Rocket, ArrowDown, Code2, Users, Zap } from "lucide-react";
+import MultiStepForm from "./components/MultiStepForm";
 
 function App() {
   const [ideasCount, setIdeasCount] = useState(45);
   const [isVisible, setIsVisible] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,12 +21,43 @@ function App() {
   }, []);
 
   const handleSubmitClick = () => {
-    // Placeholder for submission functionality
-    // alert('Submission form coming soon!');
+    setShowForm(true);
   };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
+      {/* Form Modal */}
+      {showForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-gray-900 rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-white">Submit Your Idea</h2>
+                <button
+                  onClick={() => setShowForm(false)}
+                  className="text-gray-400 hover:text-white"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <MultiStepForm />
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-gray-900/20" />
@@ -182,7 +215,8 @@ function App() {
                   Linked Work platform.
                 </p>
                 <div className="flex gap-4 justify-center">
-                  <button className="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors flex items-center gap-2">
+                  <button onClick={handleSubmitClick}
+                  className="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors flex items-center gap-2">
                     Get Started <Rocket className="w-5 h-5 text-blue-100" />
                   </button>
                 </div>
