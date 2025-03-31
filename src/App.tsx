@@ -4,7 +4,7 @@ import MultiStepForm from "./components/MultiStepForm";
 import FormList from "./components/FormList";
 
 function App() {
-  const [ideasCount, setIdeasCount] = useState(45);
+  const [ideasCount, setIdeasCount] = useState(4);
   const [isVisible, setIsVisible] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [showFormList, setShowFormList] = useState(false);
@@ -177,9 +177,9 @@ function App() {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="lucide lucide-check-circle h-8 w-8 text-indigo-600"
                   >
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -203,9 +203,9 @@ function App() {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="lucide lucide-trending-up h-8 w-8 text-indigo-600"
                   >
                     <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
@@ -229,9 +229,9 @@ function App() {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="lucide lucide-award h-8 w-8 text-indigo-600"
                   >
                     <circle cx="12" cy="8" r="6"></circle>

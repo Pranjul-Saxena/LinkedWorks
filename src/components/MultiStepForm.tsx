@@ -52,7 +52,7 @@ const MultiStepForm: React.FC = () => {
 
   // Update schema when step changes
   useEffect(() => {
-    console.log('Current step changed:', currentStep);
+    // console.log('Current step changed:', currentStep);
     switch (currentStep) {
       case 1:
         setCurrentSchema(founderInfoSchema);
@@ -81,26 +81,26 @@ const MultiStepForm: React.FC = () => {
   useEffect(() => {
     const subscription = methods.watch((value, { name, type }) => {
       if (name) {
-        console.log('Form field changed:', { name, type, value });
+        // console.log('Form field changed:', { name, type, value });
       }
     });
     return () => subscription.unsubscribe();
   }, [methods]);
 
   const onSubmit = async (data: any) => {
-    console.log('Form data before submission:', data);
-    console.log('Current step:', currentStep);
-    console.log('Form errors:', methods.formState.errors);
+    // console.log('Form data before submission:', data);
+    // console.log('Current step:', currentStep);
+    // console.log('Form errors:', methods.formState.errors);
 
     try {
       // Wait for state update before proceeding
       await updateFormData(data);
 
       if (currentStep < 4) {
-        console.log('Moving to next step');
+        // console.log('Moving to next step');
         setCurrentStep((prev: number) => prev + 1);
       } else {
-        console.log('Submitting final form');
+        // console.log('Submitting final form');
         setIsSubmitting(true);
         setSubmitError(null);
 
@@ -115,21 +115,21 @@ const MultiStepForm: React.FC = () => {
           submittedAt: new Date(),
         };
 
-        console.log('Submitting data to Firebase:', submissionData);
+        // console.log('Submitting data to Firebase:', submissionData);
         const response = await saveFormData(submissionData);
         
         if (response.success) {
-          console.log('Form submitted successfully:', response);
+          // console.log('Form submitted successfully:', response);
           alert('Form submitted successfully!');
           methods.reset(defaultFormData);
           setCurrentStep(1);
         } else {
-          console.error('Failed to submit form:', response.error);
+          // console.error('Failed to submit form:', response.error);
           setSubmitError(response.error || 'Failed to submit form. Please try again.');
         }
       }
     } catch (error) {
-      console.error('Error in form submission:', error);
+      // console.error('Error in form submission:', error);
       setSubmitError('An error occurred while submitting the form.');
     } finally {
       setIsSubmitting(false);
@@ -137,12 +137,12 @@ const MultiStepForm: React.FC = () => {
   };
 
   const handleValidationError = (errors: any) => {
-    console.log('Validation errors:', errors);
+    // console.log('Validation errors:', errors);
     setSubmitError('Please check the form for errors.');
   };
 
   const renderStep = () => {
-    console.log('Rendering step:', currentStep);
+    // console.log('Rendering step:', currentStep);
     switch (currentStep) {
       case 1:
         return <FounderInfo methods={methods} />;

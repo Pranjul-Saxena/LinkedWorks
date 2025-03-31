@@ -50,7 +50,7 @@ export const saveFormData = async (data: FormData): Promise<{ success: boolean; 
 
 export const getFormData = async (): Promise<FormData[]> => {
     try {
-        console.log('Fetching form data from Firestore');
+        // console.log('Fetching form data from Firestore');
         const q = query(collection(db, 'startup_submissions'), orderBy('submittedAt', 'desc'));
         const querySnapshot = await getDocs(q);
 
@@ -82,7 +82,7 @@ export const getFormData = async (): Promise<FormData[]> => {
             submissions.push(submission);
         });
 
-        console.log('Fetched submissions:', submissions);
+        // console.log('Fetched submissions:', submissions);
         return submissions;
     } catch (error) {
         console.error('Error fetching form data:', error);

@@ -41,7 +41,7 @@ const FormList: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold text-white mb-8">Submitted Ideas</h2>
+      {/* <h2 className="text-3xl font-bold text-white mb-8">Submitted Ideas</h2> */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {submissions.map((submission) => (
           <div
@@ -64,14 +64,11 @@ const FormList: React.FC = () => {
               <div>
                 <h4 className="text-sm font-medium text-gray-400">Sectors</h4>
                 <div className="flex flex-wrap gap-2">
-                  {submission.sectors.map((sector) => (
-                    <span
-                      key={sector}
-                      className="px-2 py-1 bg-blue-600 text-white text-sm rounded-full"
-                    >
-                      {sector}
-                    </span>
-                  ))}
+                  <span
+                    className="px-2 py-1 bg-blue-600 text-white text-sm rounded-full"
+                  >
+                    {submission.sector}
+                  </span>
                 </div>
               </div>
 
@@ -83,13 +80,9 @@ const FormList: React.FC = () => {
                       <span className="text-white capitalize">{skill.replace(/([A-Z])/g, ' $1').trim()}</span>
                       <div className="flex">
                         {[1, 2, 3, 4, 5].map((star) => (
-                          <Star
-                            key={star}
-                            className={`w-4 h-4 ${
-                              star <= rating ? 'text-yellow-400 fill-current' : 'text-gray-400'
-                            }`}
-                          />
+                          <Star key={`${skill}-${star}`} className={`w-4 h-4 ${star <= rating ? 'text-yellow-400 fill-current' : 'text-gray-400'}`} />
                         ))}
+
                       </div>
                     </div>
                   ))}
