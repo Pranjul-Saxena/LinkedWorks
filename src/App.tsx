@@ -2,14 +2,31 @@ import React, { useState, useEffect } from "react";
 import { Rocket, ArrowDown, Code2, Users, Zap } from "lucide-react";
 import MultiStepForm from "./components/MultiStepForm";
 import FormList from "./components/FormList";
+import { getFormData } from "./services/firebaseService";
 
 function App() {
-  const [ideasCount, setIdeasCount] = useState(4);
+  const [ideasCount, setIdeasCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [showFormList, setShowFormList] = useState(false);
 
   useEffect(() => {
+
+    const fetchSubmissions = async () => {
+      try {
+        const data = await getFormData();
+        setIdeasCount(data.length);
+        // console.log(data.length);
+      } catch (err) {
+        console.log('Failed to fetch submissions');
+        console.error('Error fetching submissions:', err);
+      } finally {
+        // console.log(false);
+      }
+    };
+
+    fetchSubmissions();
+
     const handleScroll = () => {
       const aboutSection = document.getElementById("about");
       if (aboutSection) {
@@ -158,9 +175,8 @@ function App() {
       {/* About Section */}
       <div
         id="about"
-        className={`min-h-screen flex items-center justify-center px-4 py-2 transition-opacity duration-1000 ${
-          isVisible ? "opacity-100" : "opacity-0"
-        }`}
+        className={`min-h-screen flex items-center justify-center px-4 py-2 transition-opacity duration-1000 ${isVisible ? "opacity-100" : "opacity-0"
+          }`}
       >
         <div className="max-w-4xl">
           <div className="max-w-7xl m-0 ro mx-auto px-4 sm:px-6 lg:px-8 ">
@@ -262,7 +278,7 @@ function App() {
                 </p>
                 <div className="flex gap-4 justify-center">
                   <button onClick={handleSubmitClick}
-                  className="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors flex items-center gap-2">
+                    className="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors flex items-center gap-2">
                     Get Started <Rocket className="w-5 h-5 text-blue-100" />
                   </button>
                 </div>
