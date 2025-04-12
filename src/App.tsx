@@ -3,6 +3,8 @@ import { Rocket, ArrowDown, Code2, Users, Zap } from "lucide-react";
 import MultiStepForm from "./components/MultiStepForm";
 import FormList from "./components/FormList";
 import { getFormData } from "./services/firebaseService";
+import Footer from "./components/Footer";
+import AboutUs from "./components/AboutUs1";
 
 function App() {
   const [ideasCount, setIdeasCount] = useState(0);
@@ -11,15 +13,14 @@ function App() {
   const [showFormList, setShowFormList] = useState(false);
 
   useEffect(() => {
-
     const fetchSubmissions = async () => {
       try {
         const data = await getFormData();
         setIdeasCount(data.length);
         // console.log(data.length);
       } catch (err) {
-        console.log('Failed to fetch submissions');
-        console.error('Error fetching submissions:', err);
+        console.log("Failed to fetch submissions");
+        console.error("Error fetching submissions:", err);
       } finally {
         // console.log(false);
       }
@@ -55,7 +56,9 @@ function App() {
           <div className="bg-gray-900 rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-white">Submit Your Idea</h2>
+                <h2 className="text-2xl font-bold text-white">
+                  Submit Your Idea
+                </h2>
                 <button
                   onClick={() => setShowForm(false)}
                   className="text-gray-400 hover:text-white"
@@ -87,7 +90,9 @@ function App() {
           <div className="bg-gray-900 rounded-xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-white">Submitted Ideas</h2>
+                <h2 className="text-2xl font-bold text-white">
+                  Submitted Ideas
+                </h2>
                 <button
                   onClick={() => setShowFormList(false)}
                   className="text-gray-400 hover:text-white"
@@ -175,8 +180,9 @@ function App() {
       {/* About Section */}
       <div
         id="about"
-        className={`min-h-screen flex items-center justify-center px-4 py-2 transition-opacity duration-1000 ${isVisible ? "opacity-100" : "opacity-0"
-          }`}
+        className={`min-h-screen flex items-center justify-center px-4 py-2 transition-opacity duration-1000 ${
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
       >
         <div className="max-w-4xl">
           <div className="max-w-7xl m-0 ro mx-auto px-4 sm:px-6 lg:px-8 ">
@@ -277,8 +283,10 @@ function App() {
                   Linked Work platform.
                 </p>
                 <div className="flex gap-4 justify-center">
-                  <button onClick={handleSubmitClick}
-                    className="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors flex items-center gap-2">
+                  <button
+                    onClick={handleSubmitClick}
+                    className="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors flex items-center gap-2"
+                  >
                     Get Started <Rocket className="w-5 h-5 text-blue-100" />
                   </button>
                 </div>
@@ -310,45 +318,13 @@ function App() {
                 </div>
               </div>
               {/* About */}
-              <div className="text-center space-y-6">
-                <h2 className="pt-16 text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  About Us
-                </h2>
-                <p className="text-lg text-gray-300">
-                  At Linked Works, we believe that every great idea deserves a
-                  chance to become reality. Our platform is designed to help
-                  innovators, entrepreneurs, and developers bring their
-                  software-based ideas to life by providing the necessary
-                  resources, support, and marketplace to scale.
-                </p>
-                <p className="text-lg text-gray-300">
-                  Whether you're looking to submit an idea, collaborate with
-                  experts, or sell your software, Linked Work ensures that your
-                  journey from concept to execution is seamless and secure.
-                </p>
-                <p className="text-lg text-gray-300">
-                  Join a community of like-minded visionaries, explore
-                  opportunities across industries, and turn your ideas into
-                  successful ventures. The future starts here.
-                </p>
-              </div>
+              <AboutUs/>
             </div>
           </div>
         </div>
       </div>
-      <footer className="bg-gray-900 text-gray-300 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="border-t border-gray-800 mt-12 pt-8 text-sm text-center">
-            <h3 className="text-white font-semibold text-lg mb-4">
-              Linked Works
-            </h3>
-            <p>
-              &copy; {new Date().getFullYear()} Linked Works. All rights
-              reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
