@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-400 py-10 mt-16"> {/* Adjusted padding/margin */}
+    <footer className="bg-gray-900 text-gray-400 py-4 mt-8"> {/* Adjusted padding/margin */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="border-t border-gray-800 pt-8 text-sm text-center">
            {/* Optional: Add logo or more links here later */}
