@@ -1,5 +1,6 @@
 import React from 'react';
 import { Rocket } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface HeroSectionProps {
   ideasCount: number;
@@ -23,9 +24,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
-        <div className="flex items-center justify-center mb-8">
-          <Rocket className="w-12 h-12 text-blue-400" />
-          <h1 className="text-3xl font-bold ml-3">Linked Works</h1>
+        <div className="flex items-center justify-center mt-0 sm:mt-6 mb-4">
+          <Rocket className="w-5 h-5 sm:w-12 sm:h-12 text-blue-400" />
+          <h1 className="text-xl sm:text-4xl font-bold ml-3">LinkedWorks</h1>
         </div>
 
         <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
@@ -51,18 +52,18 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         </div>
 
         <div className="flex gap-4 justify-center">
-          <button
-            onClick={onSubmitClick}
-            className="px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+          <Link
+            to="/submit" // Replace with your actual route path
+            className="px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 text-center"
           >
             Submit Your Idea
-          </button>
-          <button
-            onClick={onViewSubmissions}
-            className="px-8 py-4 bg-gray-700 hover:bg-gray-600 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+          </Link>
+          <Link
+            to="/securesubmit" // Replace with your actual route path
+            className="px-8 py-4 bg-gray-700 hover:bg-gray-600 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 text-center"
           >
-            View Submissions
-          </button>
+            Secure Submission
+          </Link>
         </div>
       </div>
     </div>

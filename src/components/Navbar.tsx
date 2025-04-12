@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Home, 
-  Lightbulb, 
-  Code2, 
-  Users, 
-  Mail, 
-  Menu, 
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Home,
+  Lightbulb,
+  Code2,
+  Users,
+  Mail,
+  Menu,
   X,
   Github,
   Linkedin,
-  Twitter
-} from 'lucide-react';
+  Twitter,
+} from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 // Types
 interface NavItem {
@@ -37,14 +38,22 @@ const navItems: NavItem[] = [
 
 const socialLinks: SocialLink[] = [
   { label: "GitHub", href: "https://github.com", icon: <Github size={20} /> },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: <Linkedin size={20} /> },
-  { label: "Twitter", href: "https://twitter.com", icon: <Twitter size={20} /> },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com",
+    icon: <Linkedin size={20} />,
+  },
+  {
+    label: "Twitter",
+    href: "https://twitter.com",
+    icon: <Twitter size={20} />,
+  },
 ];
 
 const Navbar: React.FC = () => {
   const [isDark, setIsDark] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const location = useLocation();
 
   // Handle scroll events for navbar background
   useEffect(() => {
@@ -52,54 +61,56 @@ const Navbar: React.FC = () => {
       setIsDark(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Disable body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
   }, [isMobileOpen]);
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isDark ? 'bg-gray-900/95 backdrop-blur-md' : 'bg-transparent'
+      className={`fixed w-[95%] rounded-full ml-2 sm:ml-10 mt-4 z-50 transition-all duration-300 ${
+        isDark ? "bg-gray-600/35 backdrop-blur-md" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-indigo-600">LinkedWorks</span>
-          </a>
+          <Link to="/" className="flex items-center space-x-2">
+            <span className="text-2xl font-bold text-indigo-600">
+              LinkedWorks
+            </span>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
-                href={item.href}
+                to={item.href}
                 className={`flex items-center space-x-1 text-sm font-medium transition-colors ${
-                  currentPath === item.href
-                    ? 'text-indigo-500'
-                    : 'text-gray-300 hover:text-indigo-400'
+                  location.pathname === item.href
+                    ? "text-indigo-500"
+                    : "text-gray-300 hover:text-indigo-400"
                 }`}
               >
                 {item.icon}
                 <span>{item.label}</span>
-              </a>
+              </Link>
             ))}
-            <button
-              className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-colors"
-              onClick={() => {/* TODO: Implement sign in logic */}}
+            <Link
+              to="/securesubmit" // Replace with your actual secure submission route
+              className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-colors inline-block text-center"
             >
-              Sign In
-            </button>
+              Secure Submit
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -127,10 +138,10 @@ const Navbar: React.FC = () => {
 
             {/* Mobile menu */}
             <motion.div
-              initial={{ x: '100%' }}
+              initial={{ x: "100%" }}
               animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'tween', duration: 0.3 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "tween", duration: 0.3 }}
               className="fixed right-0 top-0 h-full w-64 bg-gray-900 shadow-lg md:hidden"
             >
               <div className="p-4">
@@ -145,25 +156,27 @@ const Navbar: React.FC = () => {
 
                 <div className="mt-8 flex flex-col space-y-4">
                   {navItems.map((item) => (
-                    <a
+                    <Link
                       key={item.href}
-                      href={item.href}
+                      to={item.href}
                       className={`flex items-center space-x-2 p-2 rounded-lg ${
-                        currentPath === item.href
-                          ? 'bg-indigo-600 text-white'
-                          : 'text-gray-300 hover:bg-gray-800'
+                        location.pathname === item.href
+                          ? "bg-indigo-600 text-white"
+                          : "text-gray-300 hover:bg-gray-800"
                       }`}
                       onClick={() => setIsMobileOpen(false)}
                     >
                       {item.icon}
                       <span>{item.label}</span>
-                    </a>
+                    </Link>
                   ))}
                   <button
                     className="w-full bg-indigo-600 text-white p-2 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-colors"
-                    onClick={() => {/* TODO: Implement sign in logic */}}
+                    onClick={() => {
+                      /* TODO: Implement Secure Submit ? in logic */
+                    }}
                   >
-                    Sign In
+                    Secure Submit
                   </button>
                 </div>
 
@@ -193,4 +206,4 @@ const Navbar: React.FC = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;
