@@ -3,7 +3,7 @@ import React from 'react';
 const ContactPage: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-24">
-      <h1 className="text-4xl font-bold text-center mb-8">Contact Us</h1>
+      <h1 className="text-4xl font-bold text-center mt-8 mb-8">Contact Us</h1>
       <div className="max-w-xl mx-auto">
         <form className="space-y-6">
           <div>

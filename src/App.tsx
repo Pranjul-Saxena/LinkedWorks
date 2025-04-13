@@ -1,12 +1,13 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import RootLayout from './layouts/RootLayout';
-import HomePage from './pages/HomePage';
-import SubmitIdeaPage from './pages/SubmitIdeaPage';
-import MarketplacePage from './pages/MarketplacePage';
-import MentorsPage from './pages/MentorsPage';
-import ContactPage from './pages/ContactPage';
-import SecureSubmitPage from './pages/SecureSubmitPage';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import RootLayout from "./layouts/RootLayout";
+import HomePage from "./pages/HomePage";
+import SubmitIdeaPage from "./pages/SubmitIdeaPage";
+import MarketplacePage from "./pages/MarketplacePage";
+import MentorsPage from "./pages/MentorsPage";
+import ContactPage from "./pages/ContactPage";
+import SecureSubmitPage from "./pages/SecureSubmitPage";
+import SecureSubmitIdeaPage from "./pages/SecureSubmitIdeaPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="mentors" element={<MentorsPage />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="securesubmit" element={<SecureSubmitPage />} />
+        <Route path="submit-submit-idea" element={<SecureSubmitIdeaPage />} />
       </Route>
     </Routes>
   );

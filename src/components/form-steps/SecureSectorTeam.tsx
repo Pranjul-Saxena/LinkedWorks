@@ -3,11 +3,11 @@ import { useFormContext } from "react-hook-form";
 import { FormData } from "../../validation/formSchema";
 import { Star } from "lucide-react";
 
-interface SectorTeamProps {
+interface SecureSectorTeamProps {
   methods: any;
 }
 
-const SectorTeam: React.FC<SectorTeamProps> = ({ methods }) => {
+const SecureSectorTeam: React.FC<SecureSectorTeamProps> = ({ methods }) => {
   const {
     register,
     formState: { errors },
@@ -164,15 +164,15 @@ const SectorTeam: React.FC<SectorTeamProps> = ({ methods }) => {
           </p>
         )}
       </div>
-      {/* <label htmlFor="terms" className="text-gray-400 ">
+      <label htmlFor="terms" className="text-gray-400 ">
         <input type="checkbox" name="terms" required /> &nbsp; I agree to the{" "}
         <a href="/terms-and-conditions" target="_blank">
           Terms and Conditions<span className="text-red-500">*</span> for secure submission
         </a>
-      </label> */}
+      </label>
       <br />
     </div>
   );
 };
 
-export default SectorTeam;
+export default SecureSectorTeam;

@@ -21,6 +21,7 @@ const INDIAN_CITIES = [
   'Chandigarh',
   'Kochi',
   'Indore',
+  'Other',
 ];
 
 const BackgroundDetails: React.FC<BackgroundDetailsProps> = ({ methods }) => {

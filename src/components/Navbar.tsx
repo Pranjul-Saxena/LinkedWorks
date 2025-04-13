@@ -13,6 +13,8 @@ import {
   Twitter,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { Rocket } from 'lucide-react';
+
 
 // Types
 interface NavItem {
@@ -31,7 +33,7 @@ interface SocialLink {
 const navItems: NavItem[] = [
   { label: "Home", href: "/", icon: <Home size={20} /> },
   { label: "Submit Idea", href: "/submit", icon: <Lightbulb size={20} /> },
-  { label: "Marketplace", href: "/developers", icon: <Code2 size={20} /> },
+  // { label: "Marketplace", href: "/developers", icon: <Code2 size={20} /> },
   { label: "Mentors", href: "/mentors", icon: <Users size={20} /> },
   { label: "Contact", href: "/contact", icon: <Mail size={20} /> },
 ];
@@ -84,7 +86,8 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-indigo-600">
+            <Rocket className="w-8 h-8 text-blue-400" />
+            <span className="text-2xl font-bold  bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               LinkedWorks
             </span>
           </Link>

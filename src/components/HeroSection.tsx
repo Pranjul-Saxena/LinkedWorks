@@ -25,8 +25,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <div className="flex items-center justify-center mt-0 sm:mt-6 mb-4">
-          <Rocket className="w-5 h-5 sm:w-12 sm:h-12 text-blue-400" />
-          <h1 className="text-xl sm:text-4xl font-bold ml-3">LinkedWorks</h1>
+          {/* <Rocket className="w-5 h-5 sm:w-12 sm:h-12 text-blue-400" /> */}
+          {/* <h1 className="text-xl sm:text-4xl font-bold ml-3">LinkedWorks</h1> */}
         </div>
 
         <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
