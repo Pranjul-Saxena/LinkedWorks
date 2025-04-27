@@ -81,9 +81,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed w-[95%] bg-gray-700/85 rounded-full ml-2 sm:ml-10 mt-4 z-50 transition-all duration-300 ${
-        isDark ? "bg-gray-600/35 backdrop-blur-md" : "bg-transparent"
-      }`}
+      className={`fixed w-[95%] bg-gray-700/85 rounded-full ml-2 sm:ml-10 mt-4 z-50 transition-all duration-300`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
