@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { CircleDollarSign } from 'lucide-react';
 import {
   Home,
   Lightbulb,
@@ -34,7 +35,8 @@ const navItems: NavItem[] = [
   { label: "Home", href: "/", icon: <Home size={20} /> },
   { label: "Submit Idea", href: "/submit", icon: <Lightbulb size={20} /> },
   // { label: "Marketplace", href: "/developers", icon: <Code2 size={20} /> },
-  { label: "Mentors", href: "/mentors", icon: <Users size={20} /> },
+  // { label: "Mentors", href: "/mentors", icon: <Users size={20} /> },
+  { label: "Sell Idea", href: "/sellidea", icon: <CircleDollarSign size={20} /> },
   { label: "Contact", href: "/contact", icon: <Mail size={20} /> },
 ];
 
@@ -60,7 +62,8 @@ const Navbar: React.FC = () => {
   // Handle scroll events for navbar background
   useEffect(() => {
     const handleScroll = () => {
-      setIsDark(window.scrollY > 50);
+      // setIsDark(window.scrollY > 50);
+      setIsDark(false);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -78,7 +81,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed w-[95%] rounded-full ml-2 sm:ml-10 mt-4 z-50 transition-all duration-300 ${
+      className={`fixed w-[95%] bg-gray-700/95 rounded-full ml-2 sm:ml-10 mt-4 z-50 transition-all duration-300 ${
         isDark ? "bg-gray-600/35 backdrop-blur-md" : "bg-transparent"
       }`}
     >

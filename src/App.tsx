@@ -8,6 +8,7 @@ import MentorsPage from "./pages/MentorsPage";
 import ContactPage from "./pages/ContactPage";
 import SecureSubmitPage from "./pages/SecureSubmitPage";
 import SecureSubmitIdeaPage from "./pages/SecureSubmitIdeaPage";
+import SellIdeaPage from "./pages/SellIdeaPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="submit" element={<SubmitIdeaPage />} />
         <Route path="developers" element={<MarketplacePage />} />
         <Route path="mentors" element={<MentorsPage />} />
+        <Route path="sellidea" element={<SellIdeaPage />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="securesubmit" element={<SecureSubmitPage />} />
         <Route path="submit-submit-idea" element={<SecureSubmitIdeaPage />} />

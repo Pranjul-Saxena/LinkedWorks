@@ -11,7 +11,7 @@ const ContactPage: React.FC = () => {
             <input
               type="text"
               id="name"
-              className="mt-1 block w-full rounded-md bg-gray-800 border-gray-700 text-white"
+              className="mt-1 p-1 block w-full rounded-md bg-gray-800 border-gray-700 text-white"
             />
           </div>
           <div>
@@ -19,7 +19,7 @@ const ContactPage: React.FC = () => {
             <input
               type="email"
               id="email"
-              className="mt-1 block w-full rounded-md bg-gray-800 border-gray-700 text-white"
+              className="mt-1 p-1 block w-full rounded-md bg-gray-800 border-gray-700 text-white"
             />
           </div>
           <div>
@@ -27,7 +27,7 @@ const ContactPage: React.FC = () => {
             <textarea
               id="message"
               rows={4}
-              className="mt-1 block w-full rounded-md bg-gray-800 border-gray-700 text-white"
+              className="mt-1 p-1 block w-full rounded-md bg-gray-800 border-gray-700 text-white"
             ></textarea>
           </div>
           <button

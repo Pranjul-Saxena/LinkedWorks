@@ -7,7 +7,7 @@ function Footer() {
         <div className="border-t border-gray-800 pt-8 text-sm text-center">
            {/* Optional: Add logo or more links here later */}
            <h3 className="text-white font-semibold text-lg mb-4">
-             Linked Works
+             LinkedWorks
            </h3>
           <p>
             © {new Date().getFullYear()} Linked Works. All rights
