@@ -17,7 +17,7 @@ const SellIdeaPage: React.FC = () => {
         {/* Introduction */}
         <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
           <h2 className="text-2xl font-semibold mb-4">
-            💰 What is SellIdea? at LinkedWorks.
+            What is Sell Idea? at LinkedWorks.
           </h2>
           <p className="text-gray-300">
             At LinkedWorks, we believe that every idea deserves a chance — even
@@ -29,7 +29,7 @@ const SellIdeaPage: React.FC = () => {
 
         {/* Features */}
         <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
-          <h3 className="text-xl font-semibold mb-4">🧾 How It Works?</h3>
+          <h3 className="text-xl font-semibold mb-4">How It Works?</h3>
           <h4>When you submit your idea:</h4>
           <ul className="space-y-3 text-gray-300 pt-3">
             <li className="flex items-start">
@@ -59,7 +59,7 @@ const SellIdeaPage: React.FC = () => {
         {/* Why Trust */}
         <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
           <h3 className="text-xl font-semibold mb-4">
-            ✅ Why You Can Trust This Process
+            Why You Can Trust This Process
           </h3>
           <h4>
             All selected ideas are governed by proper legal agreements (NDA,
@@ -68,7 +68,7 @@ const SellIdeaPage: React.FC = () => {
           <ul className="space-y-3 text-gray-300 pt-3">
             <li className="flex items-start">
               <span className="mr-2">•</span>
-              <span>💰You retain full credit as the idea originator..</span>
+              <span>You retain full credit as the idea originator..</span>
             </li>
             <li className="flex items-start">
               <span className="mr-2">•</span>
@@ -89,15 +89,15 @@ const SellIdeaPage: React.FC = () => {
         {/* Why Trust */}
         <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
           <h3 className="text-xl font-semibold mb-4">
-            🎯 You dream it, we build it — and you earn from it.
+            You dream it, we build it — and you earn from it.
           </h3>
           <h4>
-            💡Startups aren’t just for coders. It’s time ideas got the spotlight
+            Startups aren’t just for coders. It’s time ideas got the spotlight
             too.
           </h4>
           <br/>
           <h4>
-            🔐 Submit your idea now through Secure Submit to be considered for
+            Submit your idea now through Secure Submit to be considered for
             execution and payout under the Sell Your Idea program.
           </h4>
         </div>
@@ -108,7 +108,7 @@ const SellIdeaPage: React.FC = () => {
             Make your move with confidence. Submit securely, build boldly.
           </p>
           <p className="text-xl font-medium text-purple-400">
-            🔐 Secure Submit — because your ideas deserve protection
+            Secure Submit — because your ideas deserve protection
           </p>
         </div>
       </div>
